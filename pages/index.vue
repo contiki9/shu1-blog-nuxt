@@ -32,7 +32,7 @@
                             p.description-text もし、あなたがみんなのようにブログをちゃんと更新できるようになりたいと思っているのであれば、一緒にこのグループに参加しませんか？
                         .w-bottom-button
                             .bottom-button
-                                a(href='#contact').c-button グループに参加する（無料です）
+                                nuxt-link(v-scroll-to="'#pager_contact'" to).c-button グループに参加する（無料です）
                 .w-main-content
                     section.b-section#pager_me
                         .w-section-title
@@ -60,7 +60,7 @@
                         p.text あなたも一緒に私達と同じ経験をしませんか？
                     .w-section-bottom-button.c-container.op-short
                         .section-bottom-button
-                            a(href='#contact').c-button グループに参加する（無料です）
+                            nuxt-link(v-scroll-to="'#pager_contact'" to).c-button グループに参加する（無料です）
                 //ブログを書き続ける理由
 
                 section.b-section#pager_member
@@ -175,10 +175,9 @@
                                 b-input(type='text', value='',name="qs")
                             b-field(horizontal label='その他連絡事項', message='ご質問や特記事項があれば教えてください')
                                 b-input(type='textarea', value='',name="info")
-
                             .w-section-bottom-button
                                 .section-bottom-button
-                                    input(type="submit").c-button 送信する
+                                    button(type="submit").c-button 送信する
             //応募
             .b-lp-footer
                 .w-message
