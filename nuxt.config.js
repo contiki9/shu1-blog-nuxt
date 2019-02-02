@@ -8,6 +8,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    lang:'ja',
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
@@ -38,6 +39,8 @@ module.exports = {
   */
   plugins: [
       '~/plugins/vue-scrollto',
+      {src:'~/plugins/vue2-scrollspy', ssr: false },
+      {src:'~/plugins/vue-sticky-directive', ssr: false }
   ],
 
   /*
