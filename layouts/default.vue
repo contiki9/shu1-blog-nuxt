@@ -5,11 +5,11 @@
         <a class="navbar-item" href="/">
           <img src="/assets/images/common/logo.svg" alt="週1でブログ更新する会" height="28">
         </a>
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
+        <!--<div class="navbar-burger">-->
+          <!--<span />-->
+          <!--<span />-->
+          <!--<span />-->
+        <!--</div>-->
       </div>
     </nav>
 

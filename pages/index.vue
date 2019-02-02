@@ -162,7 +162,7 @@
                         p.text 何か文言を思いついたら追加
 
                     .w-section-form.c-container.op-short
-                        form.w-form-item-block(name="contact" method="POST" data-netlify="true")
+                        form.w-form-item-block(name="contact" action="/thanks/" data-netlify="true")
                             b-field(horizontal label='名前', message='あなたの名前を入力してください')
                                 b-input(type='text', value='',name="name")
                             b-field(horizontal label='メールアドレス', message='メールアドレスを入力してください')
@@ -257,6 +257,9 @@ export default {
     }
     .p-lp--home {
         padding-right: 8*4px;
+        @include mq(){
+            padding-left: 8*4px;
+        }
         .w-heaher {
             margin-top: 8*4px;
         }
