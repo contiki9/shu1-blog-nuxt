@@ -13,7 +13,8 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "nuxt": "^2.3.4",
-    "nuxt-buefy": "^0.3.2"
+    "nuxt-buefy": "^0.3.2",
+    "vue-scrollto": "^2.13.0"
   },
   "devDependencies": {
     "coffee-loader": "^0.9.0",

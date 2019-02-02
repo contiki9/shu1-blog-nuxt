@@ -11,7 +11,7 @@
                         p.text この「週1でブログを書く会」はブログを書く習慣を身につけるためのグループです。
             hr.c-line-content
         .c-container.op-short
-            section.b-section
+            section.b-section#pager_first
                 .w-section-title
                     h2.c-section-title はじめに
                 .w-head-body
@@ -25,7 +25,7 @@
                         .bottom-button
                             a(href='#contact').c-button グループに参加する（無料です）
         .w-main-content
-            section.b-section
+            section.b-section#pager_me
                 .w-section-title
                     h2.c-section-title 私達がしている事
                 .w-secsion-text.c-container.op-short
@@ -39,7 +39,7 @@
                         span.c-text-attention ※7日以上更新しないとシートに色が付いて目立つようにしています。
             //私達がしている事
 
-            section.b-section
+            section.b-section#pager_reason
                 .w-section-title
                     h2.c-section-title ブログを書き続ける理由
                 .w-secsion-text.c-container.op-short
@@ -54,7 +54,7 @@
                         a(href='#contact').c-button グループに参加する（無料です）
             //ブログを書き続ける理由
 
-            section.b-section
+            section.b-section#pager_member
                 .w-section-title
                     h2.c-section-title 参加メンバー
                 .w-secsion-text.c-container.op-short
@@ -128,7 +128,7 @@
                         +list-member(iconSrc,blogUrl,tag,title,name,twUrl)
 
             .c-container
-                section.b-section
+                section.b-section#pager_flow
                     .w-section-title
                         h2.c-section-title 参加の流れ
 
@@ -146,7 +146,7 @@
                             +list-flow(4,'週一でブログ書き続けます。')
             //参加の流れ
 
-            section.b-section#contact
+            section.b-section#pager_contact
                 .w-section-title
                     h2.c-section-title 応募
                 //.w-secsion-text
@@ -179,10 +179,10 @@
                     ul.c-list-share
                         li
                             a(href= 'http://twitter.com/share?url=https://shu-1blog.com/&hashtags=週1ブログ会')
-                                img(src=imageDir + 'icons/share-icon-tw.svg',alt='twitterでシェア')
+                                img(src='/assets/images/icons/share-icon-tw.svg',alt='twitterでシェア')
                         li
                             a(href= 'https://www.facebook.com/sharer/sharer.php?u=https://shu-1blog.com/')
-                                img(src=imageDir + 'icons/share-icon-fb.svg',alt='facebookでシェア')
+                                img(src='/assets/images/icons/share-icon-fb.svg',alt='facebookでシェア')
 
 </template>
 

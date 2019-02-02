@@ -17,16 +17,8 @@
 
       <aside class="column is-3 section">
         <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <nuxt-link
-              :to="item.to"
-              exact-active-class="is-active"
-            >
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
+          <li v-for="(item, key) of items" :key="key">
+            <nuxt-link v-scroll-to="item.to" to><b-icon :icon="item.icon" /> {{ item.title }}</nuxt-link>
           </li>
         </ul>
       </aside>
@@ -37,6 +29,7 @@
 
     </section>
   </div>
+
 </template>
 
 <script>
@@ -47,37 +40,37 @@ export default {
         {
           title: 'TOP',
           icon: 'home',
-          to: { name: 'index' }
+          to: '/'
         },
         {
           title: 'はじめに',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to: '#pager_first'
         },
         {
           title: '私達がしている事',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to: '#pager_me'
         },
         {
           title: 'ブログを書き続ける理由',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to:'#pager_reason'
         },
         {
           title: '参加メンバー',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to: '#pager_member'
         },
         {
           title: '参加の流れ',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to:'#pager_flow'
         },
         {
           title: '応募',
           icon:'chevron-right',
-          to: { name: 'index' }
+          to:'#pager_contact'
         },
 
       ]
@@ -85,6 +78,8 @@ export default {
   }
 }
 </script>
+
+
 
 
 <style lang="scss">
@@ -222,7 +217,7 @@ export default {
       }
     }
     .w-section-bottom-button{
-      text-align: center;
+      text-align: left;
     }
   }
 
@@ -490,6 +485,13 @@ export default {
         }
       }
 
+    }
+  }
+  .menu-list{
+    @include mq(pc){
+      position: fixed;
+      top:auto;
+      left:auto;
     }
   }
 </style>

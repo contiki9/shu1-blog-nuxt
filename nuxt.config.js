@@ -16,6 +16,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/assets/images/favicon.png' }
+    ],
+    script:[
+      //{src:'//cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js'}
     ]
   },
 
@@ -34,6 +37,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+      '~/plugins/vue-scrollto',
   ],
 
   /*
