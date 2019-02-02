@@ -162,7 +162,8 @@
                         p.text 何か文言を思いついたら追加
 
                     .w-section-form.c-container.op-short
-                        form.w-form-item-block(name="contact" action="/thanks/" data-netlify="true")
+                        form.w-form-item-block(name="contact" action="/thanks/" data-netlify="true" method="post" netlify-honeypot="bot-field")
+                            input(type="hidden" name="form-name" value="contact" )
                             b-field(horizontal label='名前', message='あなたの名前を入力してください')
                                 b-input(type='text', value='',name="name")
                             b-field(horizontal label='メールアドレス', message='メールアドレスを入力してください')
