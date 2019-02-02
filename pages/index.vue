@@ -174,11 +174,11 @@
                             b-field(horizontal label='質問', message='このサイトをどこで知りましたか')
                                 b-input(type='text', value='',name="qs")
                             b-field(horizontal label='その他連絡事項', message='ご質問や特記事項があれば教えてください')
-                                b-input(type='textarea', value='',name="blog",placeholder="https://blog.com/")
+                                b-input(type='textarea', value='',name="info")
 
                             .w-section-bottom-button
                                 .section-bottom-button
-                                    a(href='#todo').c-button 送信する
+                                    input(type="submit").c-button 送信する
             //応募
             .b-lp-footer
                 .w-message
