@@ -164,21 +164,23 @@
                     .w-section-form.c-container.op-short
                         form.w-form-item-block(name="contact" action="/thanks/" data-netlify="true" method="post" netlify-honeypot="bot-field")
                             input(type="hidden" name="form-name" value="contact" )
-                            b-field(horizontal label='名前', message='あなたの名前を入力してください')
-                                b-input(type='text', value='',name="name")
-                            b-field(horizontal label='メールアドレス', message='メールアドレスを入力してください')
-                                b-input(type='email', value='',name="mail")
-                            b-field(horizontal label='facebookID', message='facebookのアカウントのURLを入れてください')
-                                b-input(type='url', value='',name="facebook" ,placeholder="https://www.facebook.com/アカウント名")
-                            b-field(horizontal label='ブログURL', message='ブログのURLを入れてください')
-                                b-input(type='url', value='',name="blog",placeholder="https://blog.com/")
+                            b-field(horizontal label='名前（必須）', message='あなたの名前を入力してください')
+                                b-input(type='text', value='',name="name" v-model="form.name",@blur="formCheck" required)
+                                //input(type='text', value='',name="name" v-model="form.name",@blur="formCheck")
+                            b-field(horizontal label='メールアドレス（必須）', message='メールアドレスを入力してください')
+                                b-input(type='email', value='',name="mail" v-model="form.mail",@blur="formCheck" required)
+                            b-field(horizontal label='facebookID（必須）', message='facebookのアカウントのURLを入れてください')
+                                b-input(type='url', value='',name="facebook" ,placeholder="https://www.facebook.com/アカウント名" ,v-model="form.facebook",@blur="formCheck" required)
+                            b-field(horizontal label='ブログURL（必須）', message='ブログのURLを入れてください')
+                                b-input(type='url', value='',name="blog",placeholder="https://blog.com/",v-model="form.blog",@blur="formCheck" required)
                             b-field(horizontal label='質問', message='このサイトをどこで知りましたか')
-                                b-input(type='text', value='',name="qs")
+                                b-input(type='text', value='',name="qs",v-model="form.qs",@blur="formCheck")
                             b-field(horizontal label='その他連絡事項', message='ご質問や特記事項があれば教えてください')
-                                b-input(type='textarea', value='',name="info")
+                                b-input(type='textarea', value='',name="info",v-model="form.info",@blur="formCheck")
                             .w-section-bottom-button
-                                .section-bottom-button
-                                    button(type="submit").c-button 送信する
+                                .section-bottom-button()
+                                    button( v-if="!form.sendFlag" type="submit" disabled="disabled").c-button 送信する
+                                    button( v-else type="submit").c-button 送信する
             //応募
             .b-lp-footer
                 .w-message
@@ -201,6 +203,15 @@ export default {
   name: 'HomePage',
     data() {
         return {
+            form:{
+                name:'',
+                mail:'',
+                facebook:'',
+                blog:'',
+                qs:'',
+                info:'',
+                sendFlag:false
+            },
             items: [
                 {
                     title: 'はじめに',
@@ -238,6 +249,22 @@ export default {
     },
     components: {
     },
+    methods:{
+      formCheck() {//フォームの入力の有無をチェック
+          var i = 0
+          for( var item in this.form ) {
+              if (item == 'mail'||item == 'facebook'||item == 'blog'||item == 'name'||item == 'sendFlag'){
+                  if (item == 'sendFlag' ){
+                      this.form['sendFlag'] = true
+                      console.log( 'sendFlag',this.form['sendFlag'] );
+                  }else if(this.form[item] == ''){
+                      this.form['sendFlag'] = false
+                      break
+                  }
+              }
+          }
+      }
+    }
 
 }
 </script>
@@ -496,6 +523,14 @@ export default {
         border: none;
         font-weight: bold;
         cursor: pointer;
+        &:disabled{
+            background: $color-disable;
+            color: rgba($color-text,.5);
+            cursor: default;
+            &:hover{
+                opacity: 1;
+            }
+        }
         &:hover, &:active, &:focus {
             text-decoration: none;
         }
@@ -575,7 +610,7 @@ export default {
         }
     }
 
-    input[type=submit], input[type=reset], input[type=button] {
+    input[type=submit], input[type=reset], input[type=button],button {
         &.c-button {
             @extend %ex-button;
             @include cnt-font-size(16);
@@ -598,6 +633,9 @@ export default {
         margin-bottom: -8px;
         li.list{
             margin-bottom:8px;
+            border: 0;
+            background: none;
+            box-shadow: none;
             &:after{
                 content: ',';
                 display: inline-block;
