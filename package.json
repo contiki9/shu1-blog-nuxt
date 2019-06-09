@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
-    "nuxt": "^2.3.4",
-    "nuxt-buefy": "^0.3.2",
-    "vue-scrollto": "^2.13.0",
+    "nuxt": "^2.8.1",
+    "nuxt-buefy": "^0.3.7",
+    "vue-scrollto": "^2.15.0",
     "vue-sticky-directive": "0.0.8",
     "vue2-scrollspy": "^2.3.1"
   },
   "devDependencies": {
     "coffee-loader": "^0.9.0",
-    "coffeescript": "^2.3.2",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.9",
+    "coffeescript": "^2.4.1",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0"
